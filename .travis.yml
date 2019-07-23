@@ -1,14 +1,19 @@
 language: ruby
 cache: bundler
 rvm:
+- 2.3.8
+- 2.4.6
 - 2.5.5
 - 2.6.3
 before_install:
-- gem install bundler
+- gem install bundler -v 2.0.2
+- export RUBY_TAG=$(echo $RUBY_VERSION | cut -f2 -d-)
 install:
 - bundle install
+- bundle exec rake gem:install
 script:
 - rspec
+- rum
 deploy:
   provider: rubygems
   api_key:

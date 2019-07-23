@@ -4,7 +4,7 @@ gem = Gem::Specification::load("rumrunner.gemspec")
 rum gem.name do
   tag gem.version
 
-  env :RUBY_VERSION => ENV["RUBY_VERSION"] || "latest"
+  env :RUBY_TAG => ENV["RUBY_TAG"] || "latest"
 
   stage :build
   stage :test => :build
